@@ -30,6 +30,7 @@ namespace YetAnotherStartup.API
             services.AddAuthentication(AzureADB2CDefaults.BearerAuthenticationScheme)
                 .AddAzureADB2CBearer(options => Configuration.Bind("AzureAdB2C", options));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +47,7 @@ namespace YetAnotherStartup.API
 
             app.UseHttpsRedirection();
             app.UseAuthentication();
+            app.UseCors(b => b.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
             app.UseMvc();
         }
     }

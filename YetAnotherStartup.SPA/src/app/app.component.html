@@ -1,0 +1,39 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<div *ngIf="!name">
+  <h1>
+    Hello, I don't know you
+  </h1>
+  <button (click)="login()">
+    Login
+  </button>
+</div>
+<div *ngIf="name">
+  <h1>
+    Hello, {{name}}
+  </h1>
+  <pre>
+    {{claims | json}}
+  </pre>
+  <button (click)="logoff()">
+    Logout
+  </button>
+</div>
+
+<div>
+  <button (click)="getValues()">
+    Get Values From API
+  </button>
+  <hr>
+  <pre>
+    {{values | json}}
+  </pre>
+
+  <pre>
+    {{securedValues | json}}
+  </pre>
+</div>
