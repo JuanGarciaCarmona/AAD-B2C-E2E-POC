@@ -12,5 +12,5 @@ export class ApiService {
 
     getSecuredValues(): Observable<any[]> {
         return this._httpClient.get<any[]>('https://localhost:5001/api/securedvalues');
-    }
+    } 
 }
